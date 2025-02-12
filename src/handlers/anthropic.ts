@@ -11,7 +11,7 @@ import {
   ToolUseBlock,
   ToolUseBlockParam,
 } from '@anthropic-ai/sdk/resources/messages'
-import { Anthropic } from '@libretto/anthropic'
+import { Anthropic, objectTemplate } from '@libretto/anthropic'
 import { LibrettoCreateParams } from '@libretto/openai'
 import { ChatCompletionMessageToolCall } from 'openai/resources/index'
 
@@ -584,7 +584,7 @@ export class AnthropicHandler extends BaseHandler<AnthropicModel> {
       const convertedBody: MessageCreateParamsNonStreaming &
         LibrettoCreateParams = {
         max_tokens: maxTokens,
-        messages,
+        messages: objectTemplate(messages),
         model: body.model,
         stop_sequences: stopSequences,
         temperature,

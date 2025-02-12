@@ -63,7 +63,7 @@ const callLLMAnthropic = async () => {
     },
   })
 
-  console.log(result.choices)
+  console.log(result.choices[0].message)
 }
 
 //callOpenAI()
