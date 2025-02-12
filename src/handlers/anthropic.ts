@@ -208,7 +208,7 @@ const toChatCompletionChoiceMessage = (
     )
   }
 
-  let toolUseBlocks: Anthropic.Messages.ToolUseBlock[]
+  let toolUseBlocks: ToolUseBlock[]
   if (typeof toolChoice !== 'string' && toolChoice?.type === 'function') {
     // When the user-defined tool_choice type is 'function', OpenAI always returns a single tool use
     // block, but Anthropic can return multiple tool use blocks. We select just one of these blocks
