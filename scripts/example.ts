@@ -87,11 +87,12 @@ const callOpenAiChatHistory = async () => {
         role: 'user',
         content: `{joke_topic}`,
       },
-    ]),
+    ]) as OpenAI.Chat.Completions.ChatCompletionMessageParam[],
     libretto: {
       promptTemplateName: 'tokenjs-openai-chathistory',
       templateParams: {
-        joke_topic: "Tell me a joke about the moon and make sure it's funny.",
+        joke_topic:
+          "Tell me a joke about the ice cream man and make sure it's funny.",
         chat_history: [
           {
             role: 'user',
@@ -109,6 +110,6 @@ const callOpenAiChatHistory = async () => {
   console.log(result.choices)
 }
 
-callLLMOpenAI()
-callLLMAnthropic()
+//callLLMOpenAI()
+//callLLMAnthropic()
 callOpenAiChatHistory()
