@@ -66,6 +66,49 @@ const callLLMAnthropic = async () => {
   console.log(result.choices[0].message)
 }
 
-//callOpenAI()
-//callLLMOpenAI()
+const callOpenAiChatHistory = async () => {
+  console.log(`Calling callOpenAiChatHistory...`)
+
+  const tokenjs = new TokenJS()
+  const result = await tokenjs.chat.completions.create({
+    provider: 'openai',
+    model: 'gpt-4o-mini',
+    messages: openaiObjectTemplate([
+      {
+        role: 'system',
+        content:
+          'You are a happy chatbot. No matter how angry someone gets with you, you always respond over the top with happiness.',
+      },
+      {
+        role: 'chat_history',
+        content: '{chat_history}',
+      },
+      {
+        role: 'user',
+        content: `{joke_topic}`,
+      },
+    ]),
+    libretto: {
+      promptTemplateName: 'tokenjs-openai-chathistory',
+      templateParams: {
+        joke_topic: "Tell me a joke about the moon and make sure it's funny.",
+        chat_history: [
+          {
+            role: 'user',
+            content: 'You are awful, and not good at telling jokes.',
+          },
+          {
+            role: 'assistant',
+            content: "I'm sorry to hear that. I'll try to do better.",
+          },
+        ],
+      },
+    },
+  })
+
+  console.log(result.choices)
+}
+
+callLLMOpenAI()
 callLLMAnthropic()
+callOpenAiChatHistory()

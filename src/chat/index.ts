@@ -1,9 +1,13 @@
 import { LibrettoCreateParams } from '@libretto/openai'
-import { ChatCompletionCreateParamsBase } from 'openai/resources/chat/completions'
+import {
+  ChatCompletionContentPart,
+  ChatCompletionCreateParamsBase,
+} from 'openai/resources/chat/completions'
 
 import { getHandler } from '../handlers/utils.js'
 import { models } from '../models.js'
 import {
+  ChatCompletionMessageParam,
   CompletionResponse,
   ConfigOptions,
   StreamCompletionResponse,
@@ -50,18 +54,26 @@ type ProviderModelMap = {
   'openai-compatible': OpenAICompatibleModel
 }
 
+/**
+ * a custom message for Libretto to allow for a list of
+ */
+export interface LibrettoChatHistoryMessageParam {
+  content: string | Array<ChatCompletionContentPart>
+  role: 'chat_history'
+}
+
 type CompletionBase<P extends LLMProvider> = Pick<
   ChatCompletionCreateParamsBase,
   | 'temperature'
   | 'top_p'
   | 'stop'
   | 'n'
-  | 'messages'
   | 'max_tokens'
   | 'response_format'
   | 'tools'
   | 'tool_choice'
 > & {
+  messages: Array<ChatCompletionMessageParam | LibrettoChatHistoryMessageParam>
   provider: P
   model: ProviderModelMap[P]
   libretto?: LibrettoCreateParams
