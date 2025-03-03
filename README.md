@@ -1,3 +1,9 @@
+# @libretto/token.js
+
+This library was forked so that calls through TokenJS can be recorded as events into Libretto AI's system: https://www.libretto.ai/
+
+WARNING: Only OpenAI and Anthropic currently are supported for Libretto events.
+
 # Token.js
 
 Integrate 200+ LLMs with one TypeScript SDK using OpenAI's format. Free and open source. No proxy server required.
@@ -55,10 +61,20 @@ async function main() {
     // Define your message
     messages: [
       {
+        role: 'system',
+        content: 'You are a friendly greeter. Greet the person by name.'
+      },
+      {
         role: 'user',
-        content: 'Hello!',
+        content: '{person_name}',
       },
     ],
+    libretto: {
+      promptTemplateName: "friendly-greeter",
+      templateParams: {
+        person_name: "Robert",
+      }
+    }
   })
   console.log(completion.choices[0])
 }

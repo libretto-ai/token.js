@@ -2,13 +2,13 @@ name: Release packages (prod)
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
   build:
     runs-on: ubuntu-22.04
+    environment: release
     steps:
     - uses: actions/checkout@v4
     - name: Install pnpm
@@ -20,15 +20,12 @@ jobs:
       with:
         node-version: 20
         cache: 'pnpm'
+        registry-url: https://registry.npmjs.org/
     - name: Install dependencies
       run: pnpm install
     - name: Build
       run: pnpm build
     - name: Publish to NPM
-      uses: changesets/action@v1
-      id: changesets
-      with:
-        publish: pnpm changeset publish
+      run: pnpm publish
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
