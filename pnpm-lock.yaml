@@ -22,7 +22,7 @@ importers:
         version: 1.3.0(@anthropic-ai/sdk@0.24.3)(@google-cloud/dlp@5.12.0)
       '@libretto/openai':
         specifier: ^1.3.3
-        version: 1.3.3(@google-cloud/dlp@5.12.0)(openai@4.91.1)
+        version: 1.3.3(@google-cloud/dlp@5.12.0)(openai@4.52.2)
       '@mistralai/mistralai':
         specifier: 0.5.0
         version: 0.5.0
@@ -39,8 +39,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.9
       openai:
-        specifier: 4.91.1
-        version: 4.91.1
+        specifier: 4.52.2
+        version: 4.52.2
     devDependencies:
       '@babel/eslint-parser':
         specifier: ^7.18.2
@@ -3409,17 +3409,9 @@ packages:
     resolution: {integrity: sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==}
     engines: {node: '>=6'}
 
-  openai@4.91.1:
-    resolution: {integrity: sha512-DbjrR0hIMQFbxz8+3qBsfPJnh3+I/skPgoSlT7f9eiZuhGBUissPQULNgx6gHNkLoZ3uS0uYS6eXPUdtg4nHzw==}
+  openai@4.52.2:
+    resolution: {integrity: sha512-mMc0XgFuVSkcm0lRIi8zaw++otC82ZlfkCur1qguXYWPETr/+ZwL9A/vvp3YahX+shpaT6j03dwsmUyLAfmEfg==}
     hasBin: true
-    peerDependencies:
-      ws: ^8.18.0
-      zod: ^3.23.8
-    peerDependenciesMeta:
-      ws:
-        optional: true
-      zod:
-        optional: true
 
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
@@ -5817,11 +5809,11 @@ snapshots:
     transitivePeerDependencies:
       - '@google-cloud/dlp'
 
-  '@libretto/openai@1.3.3(@google-cloud/dlp@5.12.0)(openai@4.91.1)':
+  '@libretto/openai@1.3.3(@google-cloud/dlp@5.12.0)(openai@4.52.2)':
     dependencies:
       '@libretto/redact-pii-light': 1.0.1(@google-cloud/dlp@5.12.0)
       limiter: 3.0.0
-      openai: 4.91.1
+      openai: 4.52.2
       p-limit: 6.2.0
       p-queue: 6.6.2
     transitivePeerDependencies:
@@ -8902,7 +8894,7 @@ snapshots:
     dependencies:
       mimic-fn: 2.1.0
 
-  openai@4.91.1:
+  openai@4.52.2:
     dependencies:
       '@types/node': 18.19.75
       '@types/node-fetch': 2.6.12
@@ -8911,6 +8903,7 @@ snapshots:
       form-data-encoder: 1.7.2
       formdata-node: 4.4.1
       node-fetch: 2.7.0
+      web-streams-polyfill: 3.3.3
     transitivePeerDependencies:
       - encoding
 
