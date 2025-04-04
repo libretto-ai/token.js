@@ -1,4 +1,5 @@
-import OpenAI from 'openai'
+import { OpenAI } from '@libretto/openai'
+import { ChatCompletionChunk } from 'openai/resources/chat/completions'
 import { Stream } from 'openai/streaming'
 
 import { PerplexityModel, ProviderCompletionParams } from '../chat/index.js'
@@ -12,7 +13,7 @@ import { InputError } from './types.js'
 export const PERPLEXITY_PREFIX = 'perplexity/'
 
 async function* streamPerplexity(
-  response: Stream<OpenAI.Chat.Completions.ChatCompletionChunk>
+  response: Stream<ChatCompletionChunk>
 ): StreamCompletionResponse {
   for await (const chunk of response) {
     yield chunk

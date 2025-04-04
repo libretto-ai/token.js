@@ -21,8 +21,8 @@ importers:
         specifier: ^1.3.0
         version: 1.3.0(@anthropic-ai/sdk@0.24.3)(@google-cloud/dlp@5.12.0)
       '@libretto/openai':
-        specifier: ^1.3.1
-        version: 1.3.1(@google-cloud/dlp@5.12.0)(openai@4.52.2)
+        specifier: ^1.3.3
+        version: 1.3.3(@google-cloud/dlp@5.12.0)(openai@4.52.2)
       '@mistralai/mistralai':
         specifier: 0.5.0
         version: 0.5.0
@@ -1035,10 +1035,10 @@ packages:
     peerDependencies:
       '@anthropic-ai/sdk': '>0.29.0'
 
-  '@libretto/openai@1.3.1':
-    resolution: {integrity: sha512-ZDt+L47/ff0mOzV8bqV0ZTXUH1pAM1T6PG4CCdX7lnxv84SdMSPCwk6m+cxb84igW0HpVsMRqdzBpj8gxhpJxA==}
+  '@libretto/openai@1.3.3':
+    resolution: {integrity: sha512-HHnEwe25L2k9Oqo0+521c1FSfcVzCx1P+Ul8sumyFgXQ/Z+JNNBq7910wLkSCmjG0OesQTcXZvDeYc71QtvEFQ==}
     peerDependencies:
-      openai: ^4.68.4
+      openai: ^4.91.1
 
   '@libretto/redact-pii-light@1.0.1':
     resolution: {integrity: sha512-fWt6m/V7Tm49lQA/PZ/Qkwufh4bSQgUDc2Nc/POSkMIc/faICEv3L3IM/m2YIqXtaTd59EElFMV2Dd3gC5nPbw==}
@@ -3185,9 +3185,6 @@ packages:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
     engines: {node: '>=4.0'}
 
-  just-performance@4.3.0:
-    resolution: {integrity: sha512-L7RjvtJsL0QO8xFs5wEoDDzzJwoiowRw6Rn/GnvldlchS2JQr9wFYPiwZcDfrbbujEKqKN0tvENdbjXdYhDp5Q==}
-
   jwa@2.0.0:
     resolution: {integrity: sha512-jrZ2Qx916EA+fq9cEAeCROWPTfCwi1IVHqT2tapuqLEVVDKFDENFw1oL+MwrTvH6msKxsd1YTDVw6uKEcsrLEA==}
 
@@ -3209,8 +3206,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  limiter@2.1.0:
-    resolution: {integrity: sha512-361TYz6iay6n+9KvUUImqdLuFigK+K79qrUtBsXhJTLdH4rIt/r1y8r1iozwh8KbZNpujbFTSh74mJ7bwbAMOw==}
+  limiter@3.0.0:
+    resolution: {integrity: sha512-hev7DuXojsTFl2YwyzUJMDnZ/qBDd3yZQLSH3aD4tdL1cqfc3TMnoecEJtWFaQFdErZsKoFMBTxF/FBSkgDbEg==}
 
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
@@ -3446,6 +3443,10 @@ packages:
   p-limit@3.1.0:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
     engines: {node: '>=10'}
+
+  p-limit@6.2.0:
+    resolution: {integrity: sha512-kuUqqHNUqoIWp/c467RI4X6mmyuojY5jGutNU0wVTmEOOfcuwLqyMVoAi9MKi2Ak+5i9+nhmrK4ufZE8069kHA==}
+    engines: {node: '>=18'}
 
   p-locate@4.1.0:
     resolution: {integrity: sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==}
@@ -4230,6 +4231,10 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  yocto-queue@1.2.1:
+    resolution: {integrity: sha512-AyeEbWOu/TAXdxlV9wmGcR0+yh2j3vYPGOECcIj2S7MkrLyC7ne+oye2BKTItt0ii2PHk4cDy+95+LshzbXnGg==}
+    engines: {node: '>=12.20'}
 
 snapshots:
 
@@ -5804,12 +5809,12 @@ snapshots:
     transitivePeerDependencies:
       - '@google-cloud/dlp'
 
-  '@libretto/openai@1.3.1(@google-cloud/dlp@5.12.0)(openai@4.52.2)':
+  '@libretto/openai@1.3.3(@google-cloud/dlp@5.12.0)(openai@4.52.2)':
     dependencies:
       '@libretto/redact-pii-light': 1.0.1(@google-cloud/dlp@5.12.0)
-      limiter: 2.1.0
+      limiter: 3.0.0
       openai: 4.52.2
-      p-limit: 3.1.0
+      p-limit: 6.2.0
       p-queue: 6.6.2
     transitivePeerDependencies:
       - '@google-cloud/dlp'
@@ -8690,8 +8695,6 @@ snapshots:
       object.assign: 4.1.7
       object.values: 1.2.1
 
-  just-performance@4.3.0: {}
-
   jwa@2.0.0:
     dependencies:
       buffer-equal-constant-time: 1.0.1
@@ -8716,9 +8719,7 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  limiter@2.1.0:
-    dependencies:
-      just-performance: 4.3.0
+  limiter@3.0.0: {}
 
   lines-and-columns@1.2.4: {}
 
@@ -8938,6 +8939,10 @@ snapshots:
   p-limit@3.1.0:
     dependencies:
       yocto-queue: 0.1.0
+
+  p-limit@6.2.0:
+    dependencies:
+      yocto-queue: 1.2.1
 
   p-locate@4.1.0:
     dependencies:
@@ -9806,3 +9811,5 @@ snapshots:
       yargs-parser: 21.1.1
 
   yocto-queue@0.1.0: {}
+
+  yocto-queue@1.2.1: {}

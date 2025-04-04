@@ -1,4 +1,4 @@
-import OpenAI from 'openai'
+import { OpenAI } from '@libretto/openai'
 
 import { GroqModel, ProviderCompletionParams } from '../chat/index.js'
 import {
