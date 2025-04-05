@@ -32,6 +32,7 @@ import { BaseHandler } from './base.js'
 import { InputError, InvariantError } from './types.js'
 import {
   consoleWarn,
+  convertMessageContentToString,
   fetchThenParseImage,
   getTimestamp,
   isEmptyObject,
@@ -251,12 +252,14 @@ const toChatCompletionChoiceMessage = (
     const messageContent = content.every(isToolUseBlock) ? null : ''
     return {
       role,
+      refusal: null,
       content: messageContent,
       tool_calls: toolCalls,
     }
   } else {
     return {
       role,
+      refusal: null,
       content: textBlocks.map((textBlock) => textBlock.text).join('\n'),
       tool_calls: toolCalls,
     }
@@ -365,7 +368,7 @@ export const convertMessages = async (
   // unchanged.
   let systemMessage: string | undefined
   if (clonedMessages.length > 0 && clonedMessages[0].role === 'system') {
-    systemMessage = clonedMessages[0].content
+    systemMessage = convertMessageContentToString(clonedMessages[0].content)
     clonedMessages.shift()
   }
 
@@ -452,7 +455,7 @@ export const convertMessages = async (
               return {
                 type: 'text',
                 text,
-              }
+              } as TextBlockParam
             } else {
               const parsedImage = await fetchThenParseImage(e.image_url.url)
               return {
@@ -462,7 +465,7 @@ export const convertMessages = async (
                   media_type: parsedImage.mimeType,
                   type: 'base64',
                 },
-              }
+              } as ImageBlockParam
             }
           })
         )

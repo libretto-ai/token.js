@@ -31,7 +31,12 @@ import {
 } from '../userTypes/index.js'
 import { BaseHandler } from './base.js'
 import { InputError } from './types.js'
-import { consoleWarn, fetchThenParseImage, getTimestamp } from './utils.js'
+import {
+  consoleWarn,
+  convertMessageContentToString,
+  fetchThenParseImage,
+  getTimestamp,
+} from './utils.js'
 
 // Google's `GenerateContentCandidate.content` field should be optional, but it's a required field
 // in Google's types. This field can be undefined if a content filter is triggered when the user
@@ -164,7 +169,9 @@ export const convertMessageToContent = async (
           {
             functionResponse: {
               name: message.tool_call_id,
-              response: JSON.parse(message.content),
+              response: JSON.parse(
+                convertMessageContentToString(message.content)
+              ),
             },
           },
         ],
@@ -304,6 +311,7 @@ export const convertResponseMessage = (
     content: candidate.content?.parts.map((part) => part.text).join('') ?? null,
     role: 'assistant',
     tool_calls: convertToolCalls(candidate),
+    refusal: null,
   }
 }
 
