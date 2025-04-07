@@ -1,4 +1,4 @@
-import OpenAI from 'openai'
+import { OpenAI } from '@libretto/openai'
 
 import { OpenRouterModel, ProviderCompletionParams } from '../chat/index.js'
 import {
