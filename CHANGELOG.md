@@ -1,5 +1,11 @@
 # @libretto/token.js
 
+## 0.4.0
+
+Cherry-pick upgrade to OpenAI 4.91.1 version from upstream PR.
+Upgrade to @libretto/openai 1.3.5, adds tools and raw responses to payload
+Add Libretto SDK on groq, perplexity, and other Openai compatible providers
+
 ## 0.3.0
 
 Merge from token.js/v0.5.4:
